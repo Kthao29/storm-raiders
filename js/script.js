@@ -37,8 +37,11 @@ function updateDay() {
     dayFive.text(currentFive);
   }
 
+
+
 //Function to get weather data when a city is searched and the 5 day forecast for temp, wind, and humidity
 async function getWeather(city) {
+    console.log(getWeather);
     const Response = await fetch(queryURL + city +`&appid=${apiKey}`);
      var data = await Response.json(); 
      console.log(data);
@@ -163,10 +166,13 @@ async function getWeather(city) {
      else if (data.list[39].weather[0].main == "Snow"){
         document.querySelector('.weather-icon-5').setAttribute("src", snowURL)
      }
+
+
 }
 
 //On click button it will getWeather
 searchBtn.addEventListener("click", function(event) {
+
     event.preventDefault();
     
     var citySearch = $(this).siblings(".search-input").val();
@@ -175,6 +181,7 @@ searchBtn.addEventListener("click", function(event) {
     if (searchArea.value == "") {
         alert("Please enter city name.");
     } else {
+        console.log("Search");
         getWeather(searchArea.value);
         localStorage.setItem("City Name", citySearch);
         
