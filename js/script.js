@@ -1,6 +1,6 @@
 var apiKey = "698478667b6522b9d21d16e7393336de";
 var city = "";
-var queryURL = "http://api.openweathermap.org/data/2.5/forecast?units=imperial&q=";
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=";
 var searchArea = document.querySelector(".search input");
 var searchBtn = document.querySelector(".search button");
 var weatherIcon = document.getElementById("weather-icon");
