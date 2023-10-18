@@ -1,5 +1,8 @@
 # storm-raiders
 
+## Description
+This weather dashboard allows the user to type in any city name and get the weather for that city. In addition, the user will also get the weather forecast for the next 5 days. The weather forecast will show the humity, wind, and temperature for that specific day and also show the correct icon for the weather as well.
+
 ## User Story
 AS A traveler
 
@@ -28,3 +31,4 @@ WHEN I click on a city in the search history
 
 THEN I am again presented with current and future conditions for that city
 
+## Screenshots

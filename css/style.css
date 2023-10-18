@@ -42,6 +42,7 @@
     font-size: 1.2rem;
   }
   
+
    .btn {
     font-size: 1.3rem;
     text-decoration:none;
@@ -58,6 +59,10 @@
     transform: translate(-1px, -1px);
   }
   
+  .history-list {
+    list-style-type: none;
+  }
+
    .btn:hover {
     color: var(--primary);
     background-color: var(--tertiary);

@@ -183,8 +183,8 @@ searchBtn.addEventListener("click", function(event) {
     } else {
         console.log("Search");
         getWeather(searchArea.value);
-        localStorage.setItem("City Name", citySearch);
-        
+            localStorage.setItem("City Name", citySearch);
+            $(".history-list").append(citySearch);
     }
 })
 
