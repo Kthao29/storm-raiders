@@ -1,0 +1,207 @@
+:root {
+    --primary: #ccdad1;
+    --secondary: #9caea9;
+    --tertiary: #788585;
+    --light-dark: #6f6866;
+    --dark: #38302e;
+    --border-radius: .3rem;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--dark);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.25;
+  }
+  
+  main {
+    margin: 20px auto;
+    width: 94%;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+   .btn {
+    font-size: 1.3rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: var(--border-radius);
+    color: var(--primary);
+    border: none;
+    outline: none;
+    background-color: var(--light-dark);
+    box-shadow: 3px 3px var(--dark);
+    transform: translate(-1px, -1px);
+  }
+  
+   .btn:hover {
+    color: var(--primary);
+    background-color: var(--tertiary);
+    transform: translate(0, 0);
+    box-shadow: 2px 2px var(--dark);
+  }
+  
+  .city-name {
+    font-size: 40px;
+  }
+  
+  .hero {
+    padding: 3% 4%;
+    background-color: var(--dark);
+    color: var(--primary);
+    text-align: center;
+  }
+  
+  .app-title {
+    font-size: 3rem;
+    background-color: var(--primary);
+    color: var(--dark);
+    padding: 0 10px;
+    display: inline-block;
+    border-radius: var(--border-radius);
+    box-shadow: 6px 5px var(--light-dark);
+  }
+  .current-weather {
+    padding: 5px;
+    margin: 20px;
+  }
+
+  .current-city {
+    display: inline;
+    border-radius: 5px;
+    padding: 20px 70px 20px 20px;
+    justify-content: space-around;
+  }
+
+  .current-temp {
+    padding: 0 30px 0 0;
+  }
+
+  .current-humidity {
+    padding: 0 10px 0 10px;
+  }
+
+  .current-wind {
+    padding: 0px 0 0 10px;
+  }
+
+  .weather-forecast {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px 70px 20px 20px;
+    justify-content: space-around;
+  }
+  
+  /* CARDS */
+  .card {
+    margin: 0 0 20px 0;
+    border: 3px solid var(--dark);
+    border-radius: var(--border-radius);
+  }
+  
+  .card-header {
+    color: var(--primary);
+    background-color: var(--dark);
+    padding: 2.5%;
+    border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  }
+  
+  .card-body {
+    padding: 2.5%;
+  }
+
+  
+  .form-input {
+    width: 100%;
+    padding: 3%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid var(--light-dark);
+    border-radius: var(--border-radius);
+  }
+  
+  .days-forecast h3 {
+    font-size: 50px;
+  }
+
+  .five-day-weather {
+    display: flex;
+    gap: 10px;
+    align-content: center;
+  }
+
+  .five-day-weather .list {
+    background: gray;
+    list-style-type: none;
+    padding: 20px 15px;
+    border-radius: 10px;
+    width: calc(100% / 5);
+  }
+  .five-day {
+    text-align: center;
+  }
+  
+  /* FONT UTILS */
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  
+  
+  /* FLEX CONTENT */
+  .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin: 10px;
+    gap: 10px;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+  
+  
+  /* col-md */
+  @media screen and (min-width: 768px) {
+    .col-md-4 {
+      flex: 0 0 calc(100% * 4 / 12 - 2%);
+    }
+  
+    .col-md-8 {
+      flex: 0 0 calc(100% * 8 / 12 - 2%);
+    }
+  }
+
+  #time {
+    display: inline-flex;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
