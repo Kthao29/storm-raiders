@@ -166,13 +166,22 @@ async function getWeather(city) {
 }
 
 //On click button it will getWeather
-searchBtn.addEventListener("click", function() {
+searchBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var citySearch = $(this).siblings(".search-input").val();
+
+
     if (searchArea.value == "") {
         alert("Please enter city name.");
     } else {
         getWeather(searchArea.value);
+        localStorage.setItem("City Name", citySearch);
+        
     }
 })
 
 //Call dayjs to get the days
 updateDay();
+
+
