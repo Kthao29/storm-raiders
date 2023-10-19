@@ -1,5 +1,5 @@
 var apiKey = "698478667b6522b9d21d16e7393336de";
-var city = "";
+var city = [];
 var queryURL = "https://api.openweathermap.org/data/2.5/forecast?units=imperial&q=";
 var searchArea = document.querySelector(".search input");
 var searchBtn = document.querySelector(".search button");
@@ -167,26 +167,54 @@ async function getWeather(city) {
         document.querySelector('.weather-icon-5').setAttribute("src", snowURL)
      }
 
-
 }
 
-//On click button it will getWeather
-searchBtn.addEventListener("click", function(event) {
 
-    event.preventDefault();
-    
-    var citySearch = $(this).siblings(".search-input").val();
+
+
+
+
+
+const input = document.getElementById('cityname');
+const ul = document.querySelector('ul');
+
+let listArray = [];
+
+localStorage.setItem('list', JSON.stringify(listArray));
+const data = JSON.parse(localStorage.getItem('list'))
+
+const liMaker = (text) => {
+    const li = document.createElement('button')
+    li.textContent = text
+    ul.appendChild(li)
+  }
+
+
+//On click button it will getWeather
+searchBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    listArray.push(input.value);
+    localStorage.setItem('list', JSON.stringify(listArray));
+    let list = "";
+
+    // var citySearch = $(this).siblings(".search-input").val();
 
 
     if (searchArea.value == "") {
         alert("Please enter city name.");
+        list = JSON.parse(localStorage.getItem('list'));
     } else {
-        console.log("Search");
+        // console.log("Search");
         getWeather(searchArea.value);
-            localStorage.setItem("City Name", citySearch);
-            $(".history-list").append(citySearch);
+        liMaker(input.value);
+        input.value = '';
+        list = [];
+        // localStorage.setItem("City Name", citySearch);
+        // $(".history-list").append(citySearch);
     }
 })
+
+
 
 //Call dayjs to get the days
 updateDay();

@@ -164,6 +164,7 @@
     list-style-type: none;
     padding: 20px 15px;
     border-radius: 10px;
+    font-size: 20px;
     width: calc(100% / 5);
   }
   .five-day {
