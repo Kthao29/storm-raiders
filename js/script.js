@@ -69,7 +69,26 @@ async function getWeather(city) {
      document.querySelector(".humidity-5").innerHTML = "Humidity: " + data.list[39].main.humidity + "%";
 
 
-//function for what kind of weather and set src attribute to what weather it is
+   //   for (var i = 0; i  < data.list.length; i += 8) { console.log(data.list);
+   //    if (data.list[i].weather[0].main == "Clear"){
+   //       document.querySelector('.weather-icon').setAttribute("src", clearURL)
+   //    } 
+   //    else if (data.list[i].weather[0].main == "Clouds"){
+   //       document.querySelector('.weather-icon').setAttribute("src", cloudURL)
+   //    }
+   //    else if (data.list[i].weather[0].main == "Rain"){
+   //       document.querySelector('.weather-icon').setAttribute("src", rainURL)
+   //    }
+   //    else if (data.list[i].weather[0].main == "Mist"){
+   //       document.querySelector('.weather-icon').setAttribute("src", mistURL)
+   //    }
+   //    else if (data.list[i].weather[0].main == "Snow"){
+   //       document.querySelector('.weather-icon').setAttribute("src", snowURL)
+   //    }
+   //   }
+
+// function for what kind of weather and set src attribute to what weather it is
+
      if (data.list[0].weather[0].main == "Clear"){
         document.querySelector('.weather-icon').setAttribute("src", clearURL)
      } 
@@ -86,6 +105,7 @@ async function getWeather(city) {
         document.querySelector('.weather-icon').setAttribute("src", snowURL)
      }
 
+     
 
      if (data.list[8].weather[0].main == "Clear"){
         document.querySelector('.weather-icon-1').setAttribute("src", clearURL)
@@ -169,25 +189,27 @@ async function getWeather(city) {
 
 }
 
-
-
-
-
-
-
 const input = document.getElementById('cityname');
 const ul = document.querySelector('ul');
 
-let listArray = [];
-
-localStorage.setItem('list', JSON.stringify(listArray));
-const data = JSON.parse(localStorage.getItem('list'))
+let listArray = JSON.parse(localStorage.getItem('list')) || [];
 
 const liMaker = (text) => {
     const li = document.createElement('button')
     li.textContent = text
+    li.addEventListener("click", function(event) { 
+      event.preventDefault();
+      console.log(event.target.textContent);
+      getWeather(event.target.textContent)
+    })
     ul.appendChild(li)
   }
+
+  for (var i = 0; i < listArray.length; i++) {
+   console.log(listArray[i]);
+   liMaker(listArray[i]);
+}
+
 
 
 //On click button it will getWeather
@@ -195,22 +217,14 @@ searchBtn.addEventListener("click", function(e) {
     e.preventDefault();
     listArray.push(input.value);
     localStorage.setItem('list', JSON.stringify(listArray));
-    let list = "";
-
-    // var citySearch = $(this).siblings(".search-input").val();
-
 
     if (searchArea.value == "") {
         alert("Please enter city name.");
-        list = JSON.parse(localStorage.getItem('list'));
     } else {
-        // console.log("Search");
         getWeather(searchArea.value);
         liMaker(input.value);
         input.value = '';
         list = [];
-        // localStorage.setItem("City Name", citySearch);
-        // $(".history-list").append(citySearch);
     }
 })
 
