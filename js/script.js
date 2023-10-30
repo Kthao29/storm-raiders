@@ -7,6 +7,7 @@ var weatherIcon = document.getElementById("weather-icon");
 var today = dayjs();
 $('#day').text(today.format('dddd, MMMM D, YYYY'));
 
+// All URL links to change weather icons when certain conditions are met
 const clearURL = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7pmzNCftryAfpa1YBSzVeYtjgxDQnw09Ug0HVV47J8GEtHPYTH9hJgZ2M1k0YgE0pcZ1qekr4C14zyPCiVuQAfXLClK8Ww3hYB6v77yElP7Lo5BnUKo4n-w6yB17FAbw51WST6YKS0GMwyA4fYNxOZxEyNL6HhUfFRgVhOW0GyRdBRriMHFQ-qfh4cA/s320/sun.png";
 const cloudURL = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwFTkt5z_dxU6w1UnS1PxiZV3HDiPGsAW5Lrsp09MnlCmkQre9GzO8MnGytaaY1eZoqBN6SMJ4U578_uDtiuXswovr1T3o-Kt5KK0mlN_zC0RDodJFaKHQ3Uk-HIZ3vuMvAKNJi8DDFwWA7F6BOxz78Oh-UePwJTuc3PG0ZIZypPE1xlMPl5z46joaEw/s320/Clouds.png";
 const rainURL = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDW_NdwvxV796rkFf43qmUDiTQePn5dg7PDfn1SijfpjtB0AWJMBcifU6LWyW7iOtjZhfqIJnKEGQ1PwbbXS7NoKMSAmvy7i2ljWXMYLue3EBIBBR2qTFbs6QCe5eoFr2CU9WzCVJ8u0J3z3eAo3Ajv1LXamZASFtbj9sA_gD-Kp3hfgAk17Xh17RoLQ/s320/rainy.png";
@@ -69,6 +70,8 @@ async function getWeather(city) {
      document.querySelector(".humidity-5").innerHTML = "Humidity: " + data.list[39].main.humidity + "%";
 
 
+
+   //   Tried a for loop to get weather icons but did not work.
    //   for (var i = 0; i  < data.list.length; i += 8) { console.log(data.list);
    //    if (data.list[i].weather[0].main == "Clear"){
    //       document.querySelector('.weather-icon').setAttribute("src", clearURL)
@@ -189,11 +192,14 @@ async function getWeather(city) {
 
 }
 
+
+
 const input = document.getElementById('cityname');
 const ul = document.querySelector('ul');
 
 let listArray = JSON.parse(localStorage.getItem('list')) || [];
 
+// Function to make list button for searched cities
 const liMaker = (text) => {
     const li = document.createElement('button')
     li.textContent = text
